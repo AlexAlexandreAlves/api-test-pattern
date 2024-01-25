@@ -1,24 +1,61 @@
+import { expect } from '@jest/globals';
 import * as request from 'supertest';
 import { BASE_URL } from '../../constants/constants';
 
-export class EntityService{
-    constructor(public route: string) { }
+export class EntityService {
 
-    public async getOne(token: string, statusCode: number, unauthorizedAccessMessage?: string, content?: any) {
+    public async getList(route: string, statusCode: number, content?: any, checkResponseMessage?: string) {
         const response = await request(BASE_URL)
-            .get(`${this.route}?prisma=${JSON.stringify(prisma)}`)
-            .set('Authorization', token)
+            .get(route)
 
-        expect(response.statusCode).toBe(statusCode);
-
-        if (unauthorizedAccessMessage) {
-            expect(response.body.message).toBe(unauthorizedAccessMessage);
-        }
+        expect(response.statusCode).toBe(statusCode)
 
         if (content) {
-            expect(response.body).toBeDefined();
-            expect(response.body).toEqual(content);
+            expect(response.body[0]).toBeDefined();
+            expect(response.body[0]).toEqual(expect.objectContaining(content));
+        }
+
+        if (checkResponseMessage) {
+            expect(response.body.message).toBe(checkResponseMessage);
         }
 
         return response
     };
+
+    public async getById(route: string, id: number, statusCode: number, content?: any, checkResponseMessage?: string) {
+        const response = await request(BASE_URL)
+            .get(`${route}` + `${id}`)
+
+        expect(response.statusCode).toBe(statusCode)
+
+        if (content) {
+            expect(response.body).toBeDefined();
+            expect(response.body).toEqual(expect.objectContaining(content));
+        }
+
+        if (checkResponseMessage) {
+            expect(response.body.message).toBe(checkResponseMessage);
+        }
+
+        return response
+    };
+
+    public async create(route: string, data: object, statusCode: number, content?: any, checkResponseMessage?: string) {
+        const response = await request(BASE_URL)
+            .post(route)
+            .send(data)
+
+        expect(response.statusCode).toBe(statusCode)
+
+        if (content) {
+            expect(response.body).toBeDefined();
+            expect(response.body).toEqual(expect.objectContaining(content));
+        }
+
+        if (checkResponseMessage) {
+            expect(response.body.message).toBe(checkResponseMessage);
+        }
+
+        return response
+    };
+};
