@@ -43,7 +43,7 @@ After you install the depencencies you can use the command below to run the test
 
 ## Contribution guidelines
 
-   - Add tests for new features
+   - Add new tests
    - Follow the existing code style
 
 ## Contact
