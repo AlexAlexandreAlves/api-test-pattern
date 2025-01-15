@@ -17,16 +17,7 @@ easily with this pattern I've built!
 
 Run to install and use the project:
 
-`npm install`
-
-If you have any error during the test execution, try to install manually and run:
-
-`npm install -D typescript`   
-`npm i ts-node`   
-`npm i jest`   
-`npm i ts-jest`   
-`npm install --save-dev supertest`   
-`npm i @types/supertest`
+`npm install --save-dev @types/jest @types/node`
 
 ## Usage
 
