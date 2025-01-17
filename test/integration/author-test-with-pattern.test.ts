@@ -18,7 +18,7 @@ const entity = new EntityService();
 
 describe('Get list request example test', () => {
 
-    it('Should find the register and return status code 200', async () => {
+    it('Should find the register and return a 200 status code ', async () => {
         await entity.getList(getList, 200, getListExpectData)
     })
 });

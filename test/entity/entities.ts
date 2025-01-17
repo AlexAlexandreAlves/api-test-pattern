@@ -58,4 +58,42 @@ export class EntityService {
 
         return response
     };
+
+    public async update(route: string, data: object, statusCode: number, content?: any, checkResponseMessage?: string) {
+        const response = await request(BASE_URL)
+            .put(route)
+            .send(data)
+
+        expect(response.statusCode).toBe(statusCode)
+
+        if (content) {
+            expect(response.body).toBeDefined();
+            expect(response.body).toEqual(expect.objectContaining(content));
+        }
+
+        if (checkResponseMessage) {
+            expect(response.body.message).toBe(checkResponseMessage);
+        }
+
+        return response
+    };
+
+    public async delete(route: string, statusCode: number, content?: any, checkResponseMessage?: string) {
+        const response = await request(BASE_URL)
+            .delete(route)
+
+        expect(response.statusCode).toBe(statusCode)
+
+        if (content) {
+            expect(response.body[0]).toBeDefined();
+            expect(response.body[0]).toEqual(expect.objectContaining(content));
+        }
+
+        if (checkResponseMessage) {
+            expect(response.body.message).toBe(checkResponseMessage);
+        }
+
+        return response
+    };
+
 };
