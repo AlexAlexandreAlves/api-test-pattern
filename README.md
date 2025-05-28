@@ -1,44 +1,44 @@
-# Project Resume
+# Jest-Supertest Api Tests
 
-In this project, I'll show how we can use an architecture to simplify building, updating and finding any errors
-easily with this pattern I've built!
+## Conteúdo
+- [Jest-Supertest Api Tests](#jest-supertest-api-tests)
+  - [Conteúdo](#conteúdo)
+  - [Instalação e Uso da arquitetura](#instalação-e-uso-da-arquitetura)
+  - [Uso](#uso)
+  - [Arquivo de Configuração:](#arquivo-de-configuração)
+  - [Versões necessárias para a execução do projeto:](#versões-necessárias-para-a-execução-do-projeto)
 
-## Table of Contents
 
-- [Project Resume](#project-resume)
-  - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [How to contribute](#how-to-contribute)
-  - [Contribution guidelines](#contribution-guidelines)
-  - [Contact](#contact)
+## Instalação e Uso da arquitetura
 
-## Installation
-
-Run to install and use the project:
+Execute para instalar e usar o projeto:
 
 `npm install --save-dev @types/jest @types/node`
 
-## Usage
+## Uso
 
-After you install the depencencies you can use the command below to run the tests:
+Após a instalação das dependências, é possível executar o projeto execxutando o comando:
 
 `npm test`
 
-## How to contribute
-1. Fork the project
-2. Create a branch for your contribution: git checkout -b feature/your-feature
-3. Make your changes and commit: git commit -m 'Add amazing feature'
-4. Push to your fork: git push origin feature/your-feature
-5. Open a Pull Request to the main branch of the project
+## Arquivo de Configuração:
 
-## Contribution guidelines
+`constants.ts`
 
-   - Add new tests
-   - Follow the existing code style
+## Versões necessárias para a execução do projeto:
+ - dependencies :
 
-## Contact
+    "@types/supertest": "^6.0.2",
+    "jest": "^29.7.0",
+    "jest-html-reporter": "^3.10.2",
+    "ts-node": "^10.9.2"
+ 
 
-If you're interested in finding out more, don't hesitate to contact me via linkedin!
+  - devDependencies:
 
-www.linkedin.com/in/alexalexandrealves 
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.10.6",
+    "supertest": "^6.3.4",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.3.3"
