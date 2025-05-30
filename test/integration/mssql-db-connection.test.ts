@@ -1,4 +1,4 @@
-import { getMSSQLConnection } from '../../db/mssql-connection';
+import { getMSSQLConnection } from '../../db-connection/mssql-connection';
 
 
 afterAll(async () => {

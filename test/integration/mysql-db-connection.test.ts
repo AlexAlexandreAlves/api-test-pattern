@@ -1,4 +1,4 @@
-import { mysqlPool } from '../../db/mysql-connection';
+import { mysqlPool } from '../../db-connection/mysql-connection';
 
 describe('MySQL connection', () => {
     it('should fetch user with id = 1', async () => {
