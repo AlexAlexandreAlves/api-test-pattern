@@ -1,4 +1,4 @@
-import Sequencer from '@jest/test-sequencer';
+const Sequencer = require('@jest/test-sequencer').default;
 
 class CustomSequencer extends Sequencer {
   shard(tests, {shardIndex, shardCount}) {
@@ -11,10 +11,9 @@ class CustomSequencer extends Sequencer {
       .slice(shardStart, shardEnd);
   }
   sort(tests) {
-
     const copyTests = Array.from(tests);
     return copyTests.sort((testA, testB) => (testA.path > testB.path ? 1 : -1));
   }
 }
 
-export default CustomSequencer;
+module.exports = CustomSequencer;
