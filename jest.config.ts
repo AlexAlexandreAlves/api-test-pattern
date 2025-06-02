@@ -17,8 +17,15 @@ const config: Config = {
     },
     reporters: [
         "default",
-        ["./node_modules/jest-html-reporter", {
-            "pageTitle": "Relatório da Suíte de Testes"
+        ["jest-html-reporters", {
+            "publicPath": "./html-report",
+            "filename": "report.html",
+            "expand": true,
+            "pageTitle": "Relatório Detalhado dos Testes"
+        }],
+        ["jest-junit", {
+            "outputDirectory": ".",
+            "outputName": "junit.xml"
         }]
     ],
     testLocationInResults: true
