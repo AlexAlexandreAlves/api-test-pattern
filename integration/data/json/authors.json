@@ -1,0 +1,18 @@
+[
+    {
+        "firstName": "QA by json name 1",
+        "lastName": "QA by json last Name 1"
+    },
+    {
+        "firstName": "QA by json name 2",
+        "lastName": "QA by json last Name 2"
+    },
+    {
+        "firstName": "QA by json name 3",
+        "lastName": "QA by json last Name 3"
+    },
+    {
+        "firstName": "QA by json name 4",
+        "lastName": "QA by json last Name 4"
+    }
+]
