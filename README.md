@@ -26,6 +26,7 @@ integration/
 custom-sequencer.js  # Sequenciador customizado do Jest
 jest.config.ts       # Configuração personalizada do Jest
 .gitlab-ci.yml       # Pipeline para GitLab CI
+.env                 # Arquivo de secrets
 ```
 
 ## Instalação
