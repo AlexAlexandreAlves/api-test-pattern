@@ -1,8 +1,8 @@
-import { getMSSQLConnection } from '../../db-connection/mssql-connection';
+import { getMSSQLConnection } from '../../../db-connection/mssql-connection';
 
 
 afterAll(async () => {
-    const pool = await getMSSQLConnection();
+    const pool = await getMSSQLConnection(); // fecha a conexão ao fim dos testes
     await pool.close();
 });
 

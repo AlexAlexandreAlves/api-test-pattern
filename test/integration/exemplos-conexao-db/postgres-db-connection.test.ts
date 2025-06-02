@@ -1,4 +1,4 @@
-import { testConnection, pool } from '../../db-connection/postgres-connection';
+import { testConnection, pool } from '../../../db-connection/postgres-connection';
 
 afterAll(async () => {
   await pool.end(); // fecha a conexão ao fim dos testes

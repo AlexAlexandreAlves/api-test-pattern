@@ -1,8 +1,8 @@
 import { expect } from '@jest/globals';
 import * as request from 'supertest';
-import { BASE_URL } from '../../constants/constants';
+import { BASE_URL } from '../../../constants/constants';
 import * as path from 'path';
-import generics from '../utils/generics';
+import generics from '../../utils/generics';
 
 const randomId = Math.floor(Math.random() * 1000) + 1;
 

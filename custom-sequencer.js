@@ -1,5 +1,7 @@
 const Sequencer = require('@jest/test-sequencer').default;
 
+// Ajusta a sequencia de execução por ordem alfabética na suíte
+
 class CustomSequencer extends Sequencer {
   shard(tests, {shardIndex, shardCount}) {
     const shardSize = Math.ceil(tests.length / shardCount);
