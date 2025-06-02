@@ -14,29 +14,5 @@
     {
         "firstName": "QA by json name 4",
         "lastName": "QA by json last Name 4"
-    },
-    {
-        "firstName": "QA by json name 5",
-        "lastName": "QA by json last Name 5"
-    },
-    {
-        "firstName": "QA by json name 6",
-        "lastName": "QA by json last Name 6"
-    },
-    {
-        "firstName": "QA by json name 7",
-        "lastName": "QA by json last Name 7"
-    },
-    {
-        "firstName": "QA by json name 8",
-        "lastName": "QA by json last Name 8"
-    },
-    {
-        "firstName": "QA by json name 9",
-        "lastName": "QA by json last Name 9"
-    },
-    {
-        "firstName": "QA by json name 10",
-        "lastName": "QA by json last Name 10"
     }
 ]

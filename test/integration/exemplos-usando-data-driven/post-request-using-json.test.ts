@@ -3,33 +3,34 @@ import * as request from 'supertest';
 import { BASE_URL } from '../../../constants/constants';
 import * as path from 'path';
 import generics from '../../utils/generics'
+import { authorsRoute } from '../../routes/author-route';
 
 const randomId = Math.floor(Math.random() * 1000) + 1;
 
 
-describe('Post request example test', () => {
+describe('Testes de exemplo com requisições POST consumindo os dados de um arquivo JSON', () => {
 
-    it('Should create an author then check response data and check the return status code 200', async () => {
+    it('Deve criar vários autores e verificar a resposta, então confere se o status code é 200', async () => {
 
-        const filePath = path.join(__dirname, '../data/json/authors.json');
+        const filePath = path.join(__dirname, '../../data/json/authors.json');
         const authors = await generics.readJsonFile(filePath);
 
         for (const author of authors) {
             const novoAutor = {
                 id: randomId,
-                idBook: randomId,
+                idBook: 2,
                 firstName: author.firstName,
                 lastName: author.lastName
             };
 
             const response = await request(BASE_URL)
-                .post('/api/v1/Authors')
+                .post(authorsRoute.createAuthors)
                 .send(novoAutor);
 
             expect(response.status).toBe(200);
             expect(response.body).toEqual(expect.objectContaining({
                 id: randomId,
-                idBook: randomId,
+                idBook: 2,
                 firstName: author.firstName,
                 lastName: author.lastName
             }));

@@ -8,11 +8,12 @@ import {
     tryToCreateAnAuthorWithInvalidData
 } from '../data/author-data';
 import { EntityService } from '../entity/entities';
-import { authors } from '../routes/author-route';
+import { authorsRoute } from '../routes/author-route';
 
-const getList = authors.getListAuthors
-const getById = authors.getAuthorsById
-const create = authors.createAuthors
+
+const getList = authorsRoute.getListAuthors
+const getById = authorsRoute.getAuthorsById
+const create = authorsRoute.createAuthors
 
 const entity = new EntityService();
 
