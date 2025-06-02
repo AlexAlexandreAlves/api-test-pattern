@@ -40,3 +40,8 @@ export const validaRetornoAutorInvalido  = {
     title: 'One or more validation errors occurred.',
     status: 400,
 }
+
+export const atualizaAutor = {
+    firstName: "Han",
+    lastName: "Solo"
+}

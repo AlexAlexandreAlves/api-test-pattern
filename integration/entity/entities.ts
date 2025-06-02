@@ -57,9 +57,9 @@ export class EntityService {
         return response
     };
 
-       public async update(route: string, data: object, statusCode: number, content?: any, checkResponseMessage?: string) {
+       public async update(route: string, id: number, data: object, statusCode: number, content?: any, checkResponseMessage?: string) {
         const response = await request(BASE_URL)
-            .put(route)
+            .put(`${route}` + `${id}`)
             .send(data)
 
         expect(response.statusCode).toBe(statusCode)
