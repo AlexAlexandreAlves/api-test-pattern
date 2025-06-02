@@ -1,12 +1,14 @@
 import { expect } from '@jest/globals';
 import * as request from 'supertest';
 import { BASE_URL } from '../../constants/constants';
+// import { TOKEN } from '../../constants/constants'; // Descomente para usar token global
 
 export class EntityService {
 
     public async getList(route: string, statusCode: number, content?: any, checkResponseMessage?: string) {
-        const response = await request(BASE_URL)
-            .get(route)
+        let req = request(BASE_URL).get(route);
+        // req = req.set('Authorization', `Bearer ${TOKEN}`); // Descomente para usar token global
+        const response = await req
 
         expect(response.statusCode).toBe(statusCode)
 
@@ -23,8 +25,9 @@ export class EntityService {
     };
 
     public async getById(route: string, id: number, statusCode: number, content?: any, checkResponseMessage?: string) {
-        const response = await request(BASE_URL)
-            .get(`${route}` + `${id}`)
+        let req = request(BASE_URL).get(`${route}${id}`);
+        // req = req.set('Authorization', `Bearer ${TOKEN}`); 
+        const response = await req
 
         expect(response.statusCode).toBe(statusCode)
 
@@ -40,9 +43,9 @@ export class EntityService {
     };
 
     public async create(route: string, data: object, statusCode: number, content?: any, checkResponseMessage?: string) {
-        const response = await request(BASE_URL)
-            .post(route)
-            .send(data)
+        let req = request(BASE_URL).post(route).send(data);
+        // req = req.set('Authorization', `Bearer ${TOKEN}`); 
+        const response = await req
 
         expect(response.statusCode).toBe(statusCode)
 
@@ -57,10 +60,10 @@ export class EntityService {
         return response
     };
 
-       public async update(route: string, data: object, statusCode: number, content?: any, checkResponseMessage?: string) {
-        const response = await request(BASE_URL)
-            .put(route)
-            .send(data)
+    public async update(route: string, id: number, data: object, statusCode: number, content?: any, checkResponseMessage?: string) {
+        let req = request(BASE_URL).put(`${route}${id}`).send(data);
+        // req = req.set('Authorization', `Bearer ${TOKEN}`); 
+        const response = await req
 
         expect(response.statusCode).toBe(statusCode)
 
@@ -75,9 +78,10 @@ export class EntityService {
         return response
     };
 
-        public async delete(route: string, id: number, statusCode: number, content?: any, checkResponseMessage?: string) {
-        const response = await request(BASE_URL)
-            .delete(`${route}` + `${id}`)
+    public async delete(route: string, id: number, statusCode: number, content?: any, checkResponseMessage?: string) {
+        let req = request(BASE_URL).delete(`${route}${id}`);
+        // req = req.set('Authorization', `Bearer ${TOKEN}`); 
+        const response = await req
 
         expect(response.statusCode).toBe(statusCode)
 
