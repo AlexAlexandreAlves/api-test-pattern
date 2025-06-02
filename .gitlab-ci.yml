@@ -1,0 +1,28 @@
+stages:
+  - test
+
+variables:
+  NODE_ENV: test
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+before_script:
+  - npm ci
+
+unit_test:
+  stage: test
+  script:
+    - npm run test -- --ci --reporters=default --reporters=jest-junit
+  artifacts:
+    when: always
+    reports:
+      junit: junit.xml
+    paths:
+      - test-report.html
+      - junit.xml
+  only:
+    - merge_requests
+    - master
