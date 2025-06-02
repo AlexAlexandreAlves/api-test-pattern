@@ -2,10 +2,10 @@ import { expect } from '@jest/globals';
 import * as request from 'supertest';
 import { BASE_URL } from '../../constants/constants';
 
-describe('Get list request example test', () => {
+describe('Exemplos de teste usando o Get list', () => {
 
-    it('Should find the register and return status code 200', async () => {
-        const response = await request(BASE_URL).get('/api/v1/Authors');
+    it('Deve encontrar o registro e retornar o código de status 200', async () => {
+        const response = await request(BASE_URL).get('api/v1/Authors');
 
         expect(response.status).toBe(200);
         expect(response.body[0]).toEqual(expect.objectContaining(
@@ -18,10 +18,10 @@ describe('Get list request example test', () => {
         ));
     });
 
-    describe('Get by id request example test', () => {
+    describe('Exemplos de teste usando o Get by id', () => {
 
-        it('Should find the register by id and return status code 200', async () => {
-            const response = await request(BASE_URL).get('/api/v1/Authors/2');
+        it('Deve encontrar o registro pelo id e retornar o código de status 200', async () => {
+            const response = await request(BASE_URL).get('api/v1/Authors/2');
 
             expect(response.status).toBe(200);
             expect(response.body).toEqual(
@@ -34,8 +34,8 @@ describe('Get list request example test', () => {
             );
         });
 
-        it('Should try to find the register by id but not found and return 404 status code', async () => {
-            const response = await request(BASE_URL).get('/api/v1/Authors/1000');
+        it('Deve tentar encontrar o registro pelo id, mas não encontrado e retornar o código de status 404', async () => {
+            const response = await request(BASE_URL).get('api/v1/Authors/1000');
 
             expect(response.status).toBe(404);
             expect(response.body).toEqual(expect.objectContaining(
@@ -49,9 +49,9 @@ describe('Get list request example test', () => {
         });
     });
 
-    describe('Post request example test', () => {
+    describe('Exemplos de teste usando o Create', () => {
 
-        it('Should create an author then check response data and check the return status code 200', async () => {
+        it('Deve criar um autor e verificar os dados da resposta e o código de status 200', async () => {
             const novoAutor = {
                 id: 650,
                 idBook: 1,
@@ -76,7 +76,7 @@ describe('Get list request example test', () => {
 
         });
 
-        it('Should try to create an author with invalid data then check response and check the return status code 400', async () => {
+        it('Deve tentar criar um autor com dados inválidos e verificar a resposta e o código de status 400', async () => {
             const invalidAuthor = {
                 id: 650,
                 idBook: 1,

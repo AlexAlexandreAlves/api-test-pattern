@@ -10,11 +10,11 @@ export class EntityService {
 
         expect(response.statusCode).toBe(statusCode)
 
+        // Validações pré definidas, podem ser ajustada conforme o contexto de validação
         if (content) {
             expect(response.body[0]).toBeDefined();
             expect(response.body[0]).toEqual(expect.objectContaining(content));
         }
-
         if (checkResponseMessage) {
             expect(response.body.message).toBe(checkResponseMessage);
         }
@@ -32,7 +32,6 @@ export class EntityService {
             expect(response.body).toBeDefined();
             expect(response.body).toEqual(expect.objectContaining(content));
         }
-
         if (checkResponseMessage) {
             expect(response.body.message).toBe(checkResponseMessage);
         }
@@ -51,7 +50,6 @@ export class EntityService {
             expect(response.body).toBeDefined();
             expect(response.body).toEqual(expect.objectContaining(content));
         }
-
         if (checkResponseMessage) {
             expect(response.body.message).toBe(checkResponseMessage);
         }

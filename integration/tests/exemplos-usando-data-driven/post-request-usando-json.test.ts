@@ -24,7 +24,7 @@ describe('Testes de exemplo com requisições POST consumindo os dados de um arq
             };
 
             const response = await request(BASE_URL)
-                .post(authorsRoute.createAuthors)
+                .post(authorsRoute.criaAutors)
                 .send(novoAutor);
 
             expect(response.status).toBe(200);

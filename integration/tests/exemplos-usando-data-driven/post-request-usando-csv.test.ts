@@ -8,9 +8,9 @@ import { authorsRoute } from '../../routes/author-route';
 
 const randomId = Math.floor(Math.random() * 1000) + 1;
 
-describe('Post request example test with CSV', () => {
+describe('Testes de exemplo com requisições POST consumindo os dados de um arquivo CSV', () => {
 
-    it('Should create authors from CSV file and check response data and status code 200', async () => {
+    it('Deve criar vários autores e verificar a resposta, então confere se o status code é 200', async () => {
 
         const filePath = path.join(__dirname, '../../data/csv/authors.csv');
         const authors = await generics.readCsvFile(filePath);
@@ -24,10 +24,8 @@ describe('Post request example test with CSV', () => {
             };
 
             const response = await request(BASE_URL)
-                .post(authorsRoute.createAuthors)
+                .post(authorsRoute.criaAutors)
                 .send(novoAutor);
-                
-                console.log(response.body);
 
             expect(response.status).toBe(200);
             expect(response.body).toEqual(expect.objectContaining({

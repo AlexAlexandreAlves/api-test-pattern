@@ -6,11 +6,12 @@ afterAll(async () => {
     await pool.close();
 });
 
-describe('MSSQL Connection test', () => {
+describe('Teste de conexão MSSQL DB', () => {
 
-    it('should connect to MSSQL and run a basic query', async () => {
+    it('Deve conectar ao MSSQL e executar uma consulta básica', async () => {
         const pool = await getMSSQLConnection();
         const result = await pool.query`SELECT 1 AS value`;
+
         expect(result.recordset[0].value).toBe(1);
     });
 
