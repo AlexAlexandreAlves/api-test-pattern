@@ -1,8 +1,5 @@
 node_modules
 html-report
 junit.xml
-docker-compose.yml
-init-mssql.sql
-init-mysql.sql
-init.sql
+
 
