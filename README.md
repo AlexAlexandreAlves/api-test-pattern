@@ -78,5 +78,9 @@ O arquivo `.gitlab-ci.yml` já está configurado para:
 - O Jest está configurado para rodar testes em sequência (`maxWorkers: 1`), para executar com paralelismo é só comentar o parâmetro **maxWorkers** ou definir a quantidade de workers simultâneos.
 - O sequenciador de execução customizado pode ser ajustado em `custom-sequencer.js`.
 - Para integração com banco, configure os dados de conexão nos arquivos em `db-connection/`.
-- Para entender melhor a conexão com o banco de dados, baixe a *branch* **dbConfig**, execute o comando `docker-compose up` para subir os bancos de dados localmente e executar testes automatizados integrados.
+- Para entender melhor a conexão com o banco de dados, baixe a *branch* **dbConfig** e execute o comando `docker-compose up` para subir e popular os bancos de dados localmente. O único banco que não vai popular automaticamente é o **MSSQL**, então será necessário executar um script separado para popular os dados:
+```sh
+docker exec -it mssql-container /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'yourStrong(!)Password' -d master -i /path/to/your/script.sql
+```
+
 

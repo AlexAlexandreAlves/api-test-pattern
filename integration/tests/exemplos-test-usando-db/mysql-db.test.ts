@@ -6,11 +6,23 @@ describe('Teste de conexão MYSQL DB', () => {
         await mysqlPool.end(); // fecha a conexão ao fim dos testes
     });
 
-    it('Deve buscar o usuário com id = 1', async () => {
-        const [rows] = await mysqlPool.query('SELECT name FROM users WHERE id = ?', [1]);
-        const user = (rows as any[])[0];
+    it('Deve inserir um usuário na tabela users', async () => {
+        const [result]: any = await mysqlPool.query(
+            'INSERT INTO users (name, age, city) VALUES (?, ?, ?)',
+            ['Maria Teste', 27, 'Florianópolis']
+        );
+        expect(result.affectedRows).toBe(1);
+    });
 
-        expect(user.name).toBe('Ana Paula'); // Busca na base de dados teste criada via docker
+    it('Deve buscar o usuário inserido', async () => {
+        const [rows]: any = await mysqlPool.query(
+            'SELECT * FROM users WHERE name = ?',
+            ['Maria Teste']
+        );
+        expect(rows.length).toBeGreaterThan(0);
+        expect(rows[0].name).toBe('Maria Teste');
+        expect(rows[0].age).toBe(27);
+        expect(rows[0].city).toBe('Florianópolis');
     });
 
 });

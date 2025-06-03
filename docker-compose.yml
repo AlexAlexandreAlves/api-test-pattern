@@ -25,7 +25,6 @@ services:
     volumes:
       - mssql_data:/var/opt/mssql
       - ./init-mssql.sql:/init-mssql.sql
-    command: /bin/bash -c "sleep 20 && /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'YourStrong(!)Password' -i /init-mssql.sql"
 
   mysql:
     image: mysql:8.0
