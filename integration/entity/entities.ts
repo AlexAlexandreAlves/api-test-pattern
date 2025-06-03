@@ -7,12 +7,12 @@ export class EntityService {
 
     public async getList(route: string, statusCode: number, content?: any, checkResponseMessage?: string) {
         let req = request(BASE_URL).get(route);
-        // req = req.set('Authorization', `Bearer ${TOKEN}`); // Descomente para usar token global
+        // req = req.set('Authorization', `Bearer ${TOKEN}`); // Descomente para definir token global
         const response = await req
 
         expect(response.statusCode).toBe(statusCode)
 
-        // Validações pré definidas, podem ser ajustada conforme o contexto de validação
+        // Validações pré definidas, podem ser ajustadas conforme o contexto de validação
         if (content) {
             expect(response.body[0]).toBeDefined();
             expect(response.body[0]).toEqual(expect.objectContaining(content));
