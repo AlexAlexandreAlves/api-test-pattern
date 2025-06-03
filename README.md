@@ -118,9 +118,9 @@ O arquivo `.gitlab-ci.yml` já está configurado para:
 - Os dados de teste devem estar em `integration/data/json/` ou `integration/data/csv/`.
 - O Jest está configurado para rodar testes em sequência (`maxWorkers: 1`), para executar com paralelismo é só comentar o parâmetro **maxWorkers** em *jest.config.ts* ou definir a quantidade de workers simultâneos.
 - O sequenciador de execução customizado pode ser ajustado em `custom-sequencer.js`, atualmente ao executar uma suíte, segue a sequência por ordem alfabética.
-- O arquivo *entities.ts* é responsável por definir as entidades que serão utilizadas nos testes, facilitando a criação de casos de teste consistentes e reutilizáveis.
+- O arquivo `entities.ts` é responsável por definir as entidades que serão utilizadas nos testes, facilitando a criação de casos de teste consistentes e reutilizáveis.
 - Para integração com banco, configure os dados de conexão nos arquivos em `db-connection/`.
-- Para entender melhor a conexão com o banco de dados, baixe a *branch* **dbConfig** e execute o comando `docker-compose up` para subir e popular os bancos de dados localmente. O único banco que não vai popular automaticamente é o **MSSQL**, então será necessário executar um script separado para popular os dados:
+- Para obter um melhor entendimento da conexão com o banco de dados, é possível baixar a *branch* **dbConfig** e executar o comando ***docker-compose up*** para subir e popular os bancos de dados localmente. O único banco que não vai popular automaticamente é o **MSSQL**, nesse caso será necessário executar um script separado para popular os dados:
 ```sh
 docker exec -it mssql-container /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'yourStrong(!)Password' -d master -i /path/to/your/script.sql
 ```
