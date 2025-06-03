@@ -12,21 +12,28 @@ Este projeto é uma arquitetura de testes automatizados para APIs REST, utilizan
 
 ## Estrutura de Pastas
 ```
-constants/           # Configurações globais
-  constants.ts
-db-connection/       # Conexão com bancos
+constants/                 # Configurações globais
+  └── constants.ts
+
+db-connection/             # Conexão com bancos de dados
+
 integration/
-  data/              # Dados para testes (JSON, CSV)
-  entity/            # Entidades prontas de exemplo
-  routes/            # Rotas das APIs
-  tests/             # Testes automatizados
-    exemplos-test-usando-db/   # Exemplos de testes com conexão a banco de dados
-    exemplos-usando-data-driven/ # Exemplos de testes usando data-driven
-  utils/             # Utilitários (ex: leitura de CSV/JSON)
-custom-sequencer.js  # Sequenciador customizado do Jest
-jest.config.ts       # Configuração personalizada do Jest
-.gitlab-ci.yml       # Pipeline para GitLab CI
-.env                 # Arquivo de secrets
+  ├── data/                # Dados para testes
+  │   ├── json/            # Arquivos JSON para data-driven
+  │   └── csv/             # Arquivos CSV para data-driven
+  ├── entity/              # Entidades prontas de exemplo
+  ├── routes/              # Rotas das APIs
+  ├── tests/               # Testes automatizados
+  │   ├── exemplos-test-usando-db/          # Exemplos de testes com conexão a banco de dados
+  │   └── exemplos-usando-data-driven/      # Exemplos de testes usando data-driven
+  │   └── exemplo-usando-entities.test.ts   # Exemplos de testes usando o padrão de entidades
+  │   └── exemplo-uso-padrao.test.ts        # Exemplos de testes sem padrão
+  └── utils/               # Utilitários (ex: leitura de CSV/JSON)
+
+custom-sequencer.js        # Sequenciador customizado do Jest
+jest.config.ts             # Configuração personalizada do Jest
+.gitlab-ci.yml             # Pipeline para GitLab CI
+.env                       # Arquivo de secrets
 ```
 
 ## Instalação
@@ -51,8 +58,8 @@ jest.config.ts       # Configuração personalizada do Jest
   ```
 
 ## Relatórios de Teste
-- **HTML:** Gerado em `html-report/report.html` (detalhado, com logs e status)
-- **JUnit XML:** Gerado em `junit.xml` (compatível com CI/CD)
+- **HTML:** Gerado através do [jest-html-reporters](https://www.npmjs.com/package/jest-html-reporters) em `html-report/report.html`
+- **JUnit XML:** Gerado através do [jest-junit](https://www.npmjs.com/package/jest-junit) em `junit.xml` 
 
 ## Pipeline GitLab CI
 O arquivo `.gitlab-ci.yml` já está configurado para:
@@ -72,6 +79,10 @@ O arquivo `.gitlab-ci.yml` já está configurado para:
 - **@types/supertest**: ^6.0.2
 - **typescript**: ^5.3.3
 - **ts-node**: ^10.9.2
+- **mssql**: ^11.0.1
+- **mysql2**: ^3.14.1
+- **pg**: ^8.16.0
+- **csvtojson**: ^2.0.10
 
 ## Observações
 - Os dados de teste devem estar em `integration/data/json/` ou `integration/data/csv/`.
