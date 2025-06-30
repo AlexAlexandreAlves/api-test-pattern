@@ -122,5 +122,5 @@ O arquivo `.gitlab-ci.yml` já está configurado para:
 - Para integração com banco, configure os dados de conexão nos arquivos em `db-connection/`.
 - Para obter um melhor entendimento da conexão com o banco de dados, é possível baixar a *branch* **dbConfig** e executar o comando ***docker-compose up*** para subir e popular os bancos de dados localmente. O único banco que não vai popular automaticamente é o **MSSQL**, nesse caso será necessário executar um script separado para popular os dados:
 ```sh
-docker exec -it mssql-container /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'yourStrong(!)Password' -d master -i /path/to/your/script.sql
+docker exec -it mssql_test /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'YourStrong(!)Password' -d master -i /init-mssql.sql -C
 ```
